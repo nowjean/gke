@@ -1,0 +1,17 @@
+description: Logging chart for central elasticsearch (+ curator) -> kibana
+engine: gotpl
+home: https://github.com/samsung-cnct/chart-logging-central
+icon: https://github.com/samsung-cnct/solas/docs/images/samsung-logo.svg
+keywords:
+- elasticsearch
+- curator
+- kibana
+- kraken
+- logging
+maintainers:
+- email: samsung.cloudnative@gmail.com
+  name: Samsung CNCT
+name: logging-central
+sources:
+- https://github.com/samsung-cnct/chart-logging-central
+version: 0.1.11

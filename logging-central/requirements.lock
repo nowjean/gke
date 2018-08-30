@@ -1,0 +1,12 @@
+dependencies:
+- name: elasticsearch-chart
+  repository: https://charts.migrations.cnct.io
+  version: 0.1.3
+- name: curator
+  repository: https://charts.migrations.cnct.io
+  version: 0.0.6
+- name: kibana
+  repository: https://charts.migrations.cnct.io
+  version: 0.1.4
+digest: sha256:c539f35d17492d4930420d1290efc2245fe627e342ec6b99a0841e4e97758612
+generated: 2018-08-28T17:35:37.029615437Z

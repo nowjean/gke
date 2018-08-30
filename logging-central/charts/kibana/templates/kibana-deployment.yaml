@@ -1,0 +1,59 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{.Values.name}}
+spec:
+  replicas: {{.Values.replicas}}
+  template:
+    metadata:
+      labels:
+        component: {{.Values.component}}
+    spec:
+      containers:
+      - name: {{.Values.container_name}}
+        image: {{.Values.image}}
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: {{.Values.cpu_limit}}
+            memory: {{.Values.mem_limit}}
+          requests:
+            cpu: {{.Values.cpu_requests}}
+            memory: {{.Values.mem_requests}}
+        env:
+        {{- range $key, $value := .Values.env }}
+          - name: "{{ $key }}"
+            value: "{{ $value }}"
+        {{- end }}
+        ports:
+        - containerPort: {{.Values.container_port}}
+          name: ui
+          protocol: TCP
+      {{- if .Values.tolerations }}
+      tolerations:
+      {{- range .Values.tolerations }}
+      - key: {{ .key | default ("") }}
+        value: {{ .value | default ("")}}
+        operator: {{ .operator | default ("Equal") }}
+        effect: {{ .effect  | default ("")}}
+      {{- end }}
+      {{- end }}
+      {{- if .Values.scheduling.affinity }}
+      {{- if .Values.scheduling.affinity.node }}
+      {{- if .Values.scheduling.affinity.node.labels }}
+      affinity:
+        nodeAffinity:
+          {{ .Values.scheduling.affinity.node.type }}:
+            nodeSelectorTerms:
+            - matchExpressions:
+                {{- range .Values.scheduling.affinity.node.labels }}
+                - key: {{ .key }}
+                  operator: {{ .operator }}
+                  values:
+                  {{- range .values }}
+                  - {{ . }}
+                  {{- end }}
+                {{- end }}
+      {{- end }}
+      {{- end }}
+      {{- end }}

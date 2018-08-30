@@ -1,0 +1,3 @@
+fluent-bit:
+  name: fluent-bit
+  cluster_uuid: 00000000-0000-0000-0000-000000000000

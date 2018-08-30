@@ -1,0 +1,11 @@
+---
+dependencies:
+- name: elasticsearch-chart
+  version: ">=0.1.3-prod,<0.1.4-prod"
+  repository: https://charts.migrations.cnct.io
+- name: curator
+  version: ">=0.0.6-prod,<0.0.7-prod"
+  repository: https://charts.migrations.cnct.io
+- name: kibana
+  version: ">=0.1.4-prod,<0.1.5-prod"
+  repository: https://charts.migrations.cnct.io

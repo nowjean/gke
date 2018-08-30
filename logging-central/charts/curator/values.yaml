@@ -1,0 +1,45 @@
+name: curator
+image: quay.io/samsung_cnct/curator-container:0.0.6-0294b75249400f4d224c7742d7719dd79ec2473b
+schedule: 30 3 * * *
+action: delete_indices
+description: Delete indices older than 14 days and prefixed with logstash-. Ignore the error if the filter does not result in an actionable list of indices (ignore_empty_list) and exit cleanly.
+options:
+  timeout_override: null
+  disable_action: false
+  ignore_empty_list: true
+  continue_if_exception: null
+filters:
+- filtertype: pattern
+  kind: prefix
+  value: logstash-
+  exclude: false
+- filtertype: age
+  source: name
+  timestring: '%Y.%m.%d'
+  direction: older
+  unit: days
+  unit_count: 14
+  field: null
+  stats_result: null
+  epoch: null
+  exclude: false
+client:
+  hosts:
+  - elasticsearch
+  port: 9200
+  url_prefix: null
+  use_ssl: false
+  certificate: null
+  client_cert: null
+  client_key: null
+  ssl_no_validate: false
+  http_auth: elastic:changeme
+  timeout: 30
+  master_only: false
+logging:
+  loglevel: INFO
+  logfile: null
+  logformat: default
+  blacklist:
+  - elasticsearch
+  - urllib3

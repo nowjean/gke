@@ -1,0 +1,17 @@
+description: Elasticsearch for Kubernetes
+engine: gotpl
+home: https://github.com/samsung-cnct/chart-elasticsearch
+icon: https://github.com/samsung-cnct/solas/docs/images/samsung-logo.svg
+keywords:
+- kraken
+- elasticsearch
+- logging
+- data
+maintainers:
+- email: samsung.cloudnative@gmail.com
+  name: Samsung CNCT
+name: elasticsearch-chart
+sources:
+- https://github.com/samsung-cnct/chart-elasticsearch
+- https://github.com/elastic/elasticsearch
+version: 0.1.3
