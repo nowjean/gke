@@ -1,0 +1,9 @@
+dependencies:
+- name: fluent-bit
+  repository: https://charts.migrations.cnct.io
+  version: 0.0.7
+- name: eventrouter
+  repository: https://charts.migrations.cnct.io
+  version: 0.1.1
+digest: sha256:af1cce7d242b8cd926c631ca4c4ca1cd3415938e18f38cd316e1dbc6258041c8
+generated: 2018-08-27T22:27:06.430403968Z

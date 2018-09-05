@@ -1,0 +1,15 @@
+description: A simple introspective kubernetes service that forwards events to a specified
+  sink.
+engine: gotpl
+home: https://github.com/samsung-cnct/chart-eventrouter
+icon: https://github.com/samsung-cnct/solas/docs/images/samsung-logo.svg
+keywords:
+- eventrouter
+- logging
+maintainers:
+- email: samsung.cloudnative@gmail.com
+  name: Samsung CNCT
+name: eventrouter
+sources:
+- https://github.com/samsung-cnct/chart-eventrouter
+version: 0.1.1

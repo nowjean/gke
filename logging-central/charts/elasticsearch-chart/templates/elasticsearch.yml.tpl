@@ -36,5 +36,16 @@ action.auto_create_index: true
 xpack.security.enabled: true 
 xpack.license.self_generated.type: trial 
 
+thread_pool:
+    search:
+        queue_size: 2000
+
+thread_pool:
+    index:
+        queue_size: 2000
+
+thread_pool:
+    bulk:
+        queue_size: 2000
 {{ end }}
 

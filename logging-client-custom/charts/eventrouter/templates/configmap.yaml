@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+data:
+  config.json: |- 
+    {
+      "sink": "{{ .Values.config.sink }}" 
+    }
+kind: ConfigMap
+metadata:
+  name: {{ .Values.name }}-configmap
+  labels:
+    app: {{ template "eventrouter.name" . }}
+    chart: {{ template "namewithversion" . }}
+    release: "{{.Release.Name}}"
+    heritage: "{{.Release.Service}}"
